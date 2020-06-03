@@ -2,10 +2,9 @@
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
-
-define e = Character("C_person")
-
-
+ 
+define e = Character("C_person", color="#800000") 
+define mc = Character("Player", color="#FF00FF")
 #############################################################################################################
 #
 # Mini Game
@@ -192,9 +191,7 @@ init python:
 screen pong():
 
     default pong = PongDisplayable()
-
     add "bg pong field"
-
     add pong
 
     text _("Player"):
@@ -230,6 +227,8 @@ label Monday:
 
     e "Once you add a story, pictures, and music, you can release it to the world!"
     
+    call CC1
+    
     return 
     
 label Tuesday:
@@ -257,14 +256,38 @@ label Thursday:
     return 
 ##########################################################################################################
 #
-# Labels for Choices for Main Girl_C
+# Labelsfor Choices for Main Girl_C
 
 label CC1:
-
-    e "j8q0jh3r9ha378a"
-
-    "wa3q210391u203!"
+    $ choice = 0
+    "This is choice number #1"
     
+    menu:
+        "1. Throw the stress ball on your desk AT HER WINDOW":
+            $choice = 1
+        "2. Call her cellphone":
+            $choice = 2
+        "3. Call her cellphone":
+            $choice = 3
+
+    if choice == 1:
+        "You grab the used stress ball sitting on your desk and open your window." 
+        "Take a couple of steps back, run up and throw the ball."
+        "You’ve done this before, the window won’t break. The ball hits, and hits hard."
+        mc"WAKE UP!!!"
+        "You hear an audible thud and the blinds open slowly." 
+        "You see your childhood friend in her pyjamas and freak out about oversleeping." 
+        "Again..."
+    elif choice == 2:
+        "You grab your cell phone and ring her phone."
+        "ㄴ phone ring sound ㄱ"
+        "It rings for a while and finally she picks up."
+        
+        e"H-hello?"
+        mc"Good morning, idiot. 
+           It's currently 30 minutes before class starts and from the looks of it you just woke up. 
+           Get it together, I won’t be here to wake you up forever."
+        
     return 
     
 label CC2:
@@ -308,10 +331,11 @@ label start:
     "My friend tito toto"
     pause
     
+    call Monday
     $ quick_menu = False
-
 #     call screen pong
-
     $ quick_menu = True
     
+    pause
+### End of Game
     return
