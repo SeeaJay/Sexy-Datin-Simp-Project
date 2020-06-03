@@ -3,6 +3,12 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
+define e = Character("C_person") 
+
+#############################################################################################################
+#
+# Mini Game
+#
 init python:
 
     class PongDisplayable(renpy.Displayable):
@@ -185,9 +191,7 @@ init python:
 screen pong():
 
     default pong = PongDisplayable()
-
     add "bg pong field"
-
     add pong
 
     text _("Player"):
@@ -209,25 +213,11 @@ screen pong():
             size 40
 
 
+
+
 ##########################################################################################################
-define e = Character("Eileen")
-
-
-# The game starts here.
-
-label start:
-    scene bg room
-    call scene2
-    call scene1
-    
-    
-    $ quick_menu = False
-
-#     call screen pong
-
-    $ quick_menu = True
-    
-    return
+#
+# Labels for each day
 
 label Monday:
     
@@ -236,6 +226,8 @@ label Monday:
     e "You've created a new Ren'Py game."
 
     e "Once you add a story, pictures, and music, you can release it to the world!"
+    
+    call CC1
     
     return 
     
@@ -262,4 +254,75 @@ label Thursday:
     "wa3q210391u203!"
     
     return 
+##########################################################################################################
+#
+# Labelsfor Choices for Main Girl_C
+
+label CC1:
+    $ choice = 0
+    e "This is choice number #1"
     
+    menu:
+    
+        
+        "It is???????":
+            $choice = 1
+        "REALLY NOW???????":
+            $choice = 2
+
+    if choice == 1:
+        "Dont do drugs now kids"
+    elif choice == 2:
+        "PLease to alllloooooot of drugs my fellow bud"
+        
+    return 
+    
+label CC2:
+
+    e "j8q0jh3r9ha378a"
+
+    "wa3q210391u203!"
+    
+    return 
+    
+label CC3:
+
+    e "j8q0jh3r9ha378a"
+
+    "wa3q210391u203!"
+    
+    return 
+    
+label CC4:
+
+    e "j8q0jh3r9ha378a"
+
+    "wa3q210391u203!"
+    
+    return 
+    
+label CC5:
+
+    e "j8q0jh3r9ha378a"
+
+    "wa3q210391u203!"
+    
+    return 
+    
+##########################################################################################################
+#
+# The game starts here.
+
+label start:
+    scene bg room
+    "My friend tito toto"
+    pause
+    
+    call Monday
+    $ quick_menu = False
+#     call screen pong
+    $ quick_menu = True
+    
+    pause
+### End of Game
+    return
